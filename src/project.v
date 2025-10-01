@@ -36,7 +36,7 @@ module tt_um_example (
     if(uio_in[2]) begin
         assign uo_out = counter;
     end else begin
-        assign <= 8'bz;
+        assign uo_out = 8'bz;
     end
 
 endmodule
