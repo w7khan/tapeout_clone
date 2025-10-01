@@ -33,6 +33,7 @@ module tt_um_example (
         end
     end
 
+    // Tri-state output
     if(uio_in[2]) begin
         assign uo_out = counter;
     end else begin
