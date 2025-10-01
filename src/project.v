@@ -31,14 +31,12 @@ module tt_um_example (
         else if (!rst_n) begin
             counter <= 8'b0;
         end
-
-        if(uio_in[2]) begin
-            uo_out <= counter;
-        end else begin
-            uo_out <= 8'bz;
-        end
-    
     end
 
+    if(uio_in[2]) begin
+        uo_out <= counter;
+    end else begin
+        uo_out <= 8'bz;
+    end
 
 endmodule
