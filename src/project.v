@@ -41,6 +41,6 @@ module tt_um_example (
     end
 
     // Tri-state output
-    assign uio_out = uio_in[2] ? counter : 8'b0;
+    assign uo_out = uio_in[2] ? counter : 8'b0;
 
 endmodule
