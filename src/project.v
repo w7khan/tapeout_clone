@@ -16,6 +16,10 @@ module tt_um_example (
     input  wire       rst_n     // reset_n - low to reset
 );
 
+    assign uio_out = 0;
+    assign uio_oe  = 0;
+    wire _unused = &{ena, clk, rst_n, 1'b0};
+
     reg [7:0] counter;
 
     always @(posedge clk or negedge rst_n) begin
