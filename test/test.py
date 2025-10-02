@@ -27,7 +27,7 @@ async def test_project(dut):
 
     #load
     dut.ui_in.value = 10
-    dut.uio_in.value = 0b00000010   
+    dut.uio_in.value = 0b00000110   
     await ClockCycles(dut.clk, 1)
     assert dut.uio_out.value == 10,
    
