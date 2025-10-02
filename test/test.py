@@ -36,6 +36,12 @@ async def test_project(dut):
     await ClockCycles(dut.clk, 1)
     dut.uio_in.value = 0b00000100
     await ClockCycles(dut.clk, 1)
-    dut._log.info(f"uo_out int = {dut.uo_out.value.integer}")
     assert dut.uo_out.value == 11
+
+    #increment 2
+    dut.uio_in.value = 0b00000001
+    await ClockCycles(dut.clk, 1)
+    dut.uio_in.value = 0b00000100
+    await ClockCycles(dut.clk, 1)
+    assert dut.uo_out.value == 12
     
