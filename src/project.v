@@ -19,25 +19,24 @@ module tt_um_example (
     reg [7:0] counter;
 
     always @(posedge clk or negedge rst_n) begin
-        //enable
-        if (uio_in[0]) begin
-            counter <= counter + 1'b1;
+        //reset
+        if (!rst_n) begin
+            counter <= 8'b0;
         end
+
         //set
         else if (uio_in[1]) begin
             counter <= ui_in;
         end
-        //reset
-        else if (!rst_n) begin
-            counter <= 8'b0;
+        
+        //enable
+        else if (uio_in[0]) begin
+            counter <= counter + 1'b1;
         end
+        
     end
 
     // Tri-state output
-    if(uio_in[2]) begin
-        assign uo_out = counter;
-    end else begin
-        assign uo_out = 8'bz;
-    end
+    assign uo_out = uio_in[2] ? counter : 8'bz;
 
 endmodule
