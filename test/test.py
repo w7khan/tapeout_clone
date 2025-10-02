@@ -32,7 +32,7 @@ async def test_project(dut):
     assert dut.uo_out.value == 10
    
     #increment
-    dut.uio_in.value = 0b00000001
+    dut.uio_in.value = 0b00000101
     await ClockCycles(dut.clk, 1)
     assert dut.uo_out.value == 11
     
