@@ -31,3 +31,8 @@ async def test_project(dut):
     await ClockCycles(dut.clk, 2)
     assert dut.uo_out.value == 10
    
+    #increment
+    dut.uio_in.value = 0b00000001
+    await ClockCycles(dut.clk, 1)
+    assert dut.uo_out.value == 11
+    
